@@ -1,0 +1,61 @@
+/* General Notification Styles */
+.notification {
+    position: fixed;
+    z-index: 1000;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    transition: opacity 0.3s ease-in-out, transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+/* Contact Form Notifications */
+.contact-notification {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 300px;
+    text-align: center;
+}
+
+/* Package Booking Notifications */
+.booking-notification {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 300px;
+    text-align: center;
+}
+
+/* Notification Types */
+.notification.success {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #45a049;
+}
+
+.notification.error {
+    background-color: #f44336;
+    color: white;
+    border: 1px solid #da190b;
+}
+
+/* RTL Support */
+[dir="rtl"] .notification {
+    text-align: right;
+}
+
+/* Fade Out Animation */
+.notification.fade-out {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 480px) {
+    .notification {
+        min-width: 90%;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+}

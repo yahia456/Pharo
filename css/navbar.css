@@ -1,0 +1,447 @@
+/* Navbar Styles */
+:root {
+    --transition: all 0.3s ease-in-out;
+    --primary-color: #d4af37;
+    --secondary-color: #2c3e50;
+    --accent-color: #b8860b;
+}
+
+/* Header Base Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: var(--transition);
+    padding: 0.2rem 0;
+    background: rgba(0,0,0,0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.header.scrolled {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+/* RTL/LTR Language Support for Navbar */
+/* Base navbar structure */
+.navbar {
+    flex-direction: row;
+}
+
+.navbar-nav {
+    margin-right: 3rem;
+    margin-left: 0;
+    padding-right: 0;
+    flex-direction: row;
+}
+
+.navbar-right {
+    margin-right: 1rem;
+    margin-left: 0;
+}
+
+/* LTR (English) specific overrides */
+[dir="ltr"] .navbar-nav {
+    margin-left: 3rem;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: initial;
+}
+
+[dir="ltr"] .navbar-right {
+    /* push the right-group to the far right in LTR */
+    margin-left: auto;
+    margin-right: 0;
+}
+
+[dir="rtl"] .navbar-nav .nav-link::after {
+    right: 10px;
+    left: 10px;
+}
+
+[dir="ltr"] .navbar-nav .nav-link::after {
+    left: 10px;
+    right: 10px;
+}
+
+/* Logo and Toggle Button positioning */
+.header .d-flex.align-items-center {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-brand {
+    order: 2;
+}
+
+.custom-toggler {
+    order: 1;
+}
+
+/* LTR Layout Overrides (English) */
+[dir="ltr"] .navbar-brand {
+    order: 1;
+}
+
+[dir="ltr"] .custom-toggler {
+    order: 2;
+}
+
+/* Navigation Structure */
+.navbar-collapse {
+    display: flex;
+    flex-grow: 1;
+}
+
+[dir="rtl"] .navbar-collapse {
+    justify-content: space-between;
+}
+
+[dir="ltr"] .navbar-collapse {
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+/* Navbar Structure */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem 0rem;
+    height: 50px;
+    max-width: 1800px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+/* Logo Styles */
+.navbar-brand {
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.pharaoh-logo-text {
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(24,23,22,0.267);
+    font-family: var(--font-cairo);
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 0 10px;
+    font-variant: small-caps;
+}
+
+.header.contact-top .pharaoh-logo-text {
+    color: #fff;
+}
+
+/* Navigation Links */
+.navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link {
+    padding: 0.35rem 0.8rem;
+    color: rgba(255, 255, 255, 0.95);
+    position: relative;
+    transition: var(--transition);
+    font-weight: 500;
+    white-space: nowrap;
+    display: block;
+    font-size: 0.9rem;
+    letter-spacing: 0.2px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: -2px;
+    height: 2px;
+    background: transparent;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.header.scrolled .nav-link {
+    color: var(--secondary-color);
+}
+
+.header.contact-top .nav-link {
+    color: #fff;
+}
+
+/* Navbar Right Section */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Language Switch Button */
+.lang-switch {
+    padding: 0.5rem 1rem;
+    border: 2px solid #fff;
+    color: #fff;
+    font-weight: 600;
+    margin: 0 1rem;
+    border-radius: 30px;
+    transition: var(--transition);
+    background: transparent;
+}
+
+.lang-switch:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Social Icons */
+.nav-left-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    color: #fff !important;
+    transition: var(--transition);
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: #e2dfa4 !important;
+    transform: translateY(-2px);
+}
+
+/* Mobile Toggle Button */
+.custom-toggler {
+    display: none; /* Hide in desktop */
+    border: none;
+    background: transparent;
+    width: 44px;
+    height: 40px;
+    padding: 6px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .custom-toggler {
+        display: flex;
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .navbar-collapse.show {
+        transform: translateY(0);
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-link {
+        color: var(--secondary-color) !important;
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem !important;
+    }
+
+    .navbar-right {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .lang-switch {
+        color: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
+
+    .social-icon {
+        color: var(--secondary-color);
+    }
+}
+
+/* RTL/LTR Additional Support */
+[dir="rtl"] .nav-link::before {
+    right: 0;
+    left: auto;
+}
+
+[dir="ltr"] .nav-link::before {
+    left: 0;
+    right: auto;
+}
+
+[dir="rtl"] .nav-left-social {
+    margin-right: auto;
+    margin-left: 1rem;
+}
+
+[dir="ltr"] .nav-left-social {
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+/* Hamburger Menu */
+.custom-toggler {
+    border: none;
+    background: transparent;
+    padding: 0.5rem;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: var(--transition);
+}
+
+/* Responsive Styles (clean) */
+@media (max-width: 991px) {
+    .custom-toggler {
+        display: flex;
+    }
+
+    .navbar-collapse {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        text-align: center;
+    }
+
+    .navbar-collapse.show {
+        transform: translateY(0);
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 1rem 0;
+    }
+
+    .nav-link {
+        color: var(--secondary-color) !important;
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem !important;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .navbar-right {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .lang-switch {
+        color: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
+
+    .nav-left-social {
+        justify-content: center;
+    }
+}
+
+/* Enforce LTR ordering: logo (left) -> nav links (left) -> lang switch -> social icons (right) */
+[dir="ltr"] .navbar {
+    direction: ltr;
+}
+
+[dir="ltr"] .navbar .d-flex.align-items-center {
+    order: 1; /* logo area on left */
+}
+
+[dir="ltr"] .navbar-collapse {
+    order: 2;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+[dir="ltr"] .navbar-nav {
+    order: 2; /* nav links sit next to logo */
+    display: flex;
+    gap: 0.5rem;
+}
+
+[dir="ltr"] .navbar-right {
+    order: 3; /* language switch and social icons on the right */
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+[dir="ltr"] .lang-switch {
+    order: 1; /* language switch comes before social icons */
+}
+
+[dir="ltr"] .nav-left-social {
+    order: 2;
+}
+
+/* Keep RTL default: logo right, nav links right-to-left */
